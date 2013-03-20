@@ -6,12 +6,7 @@ import sys
 
 class InteractivePrefs(object):
     def keys(self):
-        return { 
-                'lang': {
-                    'desc': 'The Store which the workflow should search (en, de, uk, ...)',
-                    'default' : 'en'
-                }
-        }
+        return {}
         
     
     def complete(self, query=""):
