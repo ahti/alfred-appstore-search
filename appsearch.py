@@ -6,15 +6,10 @@ import string
 import requests
 import json
 
-search_lang = 'en'
-
-def set_lang(lang_id):
-    global search_lang
-    search_lang = lang_id
-
 def search_apps(search_string):
-    global search_lang
-
+    prefs = alp.Settings()
+    search_lang = prefs.get('lang', 'en')
+    
     url = 'http://itunes.apple.com/{}/search'.format(search_lang)
     
     query = { 'entity' : 'macSoftware', 'term' : search_string } 
