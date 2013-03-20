@@ -95,9 +95,9 @@ search_apps('{query}')</string>
 				<key>runningsubtext</key>
 				<string>Processing ...</string>
 				<key>script</key>
-				<string>from appsearch_prefs import complete
+				<string>from prefs import AppsearchPrefs
 
-complete('{query}')</string>
+AppsearchPrefs().complete('{query}')</string>
 				<key>subtext</key>
 				<string>Change Settings for the App Store Search Workflow</string>
 				<key>title</key>
@@ -118,9 +118,9 @@ complete('{query}')</string>
 				<key>escaping</key>
 				<integer>0</integer>
 				<key>script</key>
-				<string>from appsearch_prefs import execute
+				<string>from prefs import AppsearchPrefs
 
-execute('{query}')</string>
+AppsearchPrefs().execute('{query}')</string>
 				<key>type</key>
 				<integer>3</integer>
 			</dict>
