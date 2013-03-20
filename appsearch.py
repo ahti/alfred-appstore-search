@@ -30,6 +30,8 @@ def search_apps(search_string):
         alp.feedback([item])
         return
     
+    #print(r.text)
+    
     jsonarr = r.json()
     
     items = []
@@ -45,9 +47,10 @@ def search_apps(search_string):
         else:
             raiting = raiting_none()
         
-        sub = u"{} · by {} · {}".format(app['formattedPrice'],
-                                                app['sellerName'],
-                                                raiting)
+        sub = u"{} · Version {} · by {} · {}".format(app['formattedPrice'],
+                                                     app['version'],
+                                                     app['sellerName'],
+                                                     raiting)
         
         openUrl = app['trackViewUrl'].replace('https', 'macappstores', 1)
         item = alp.Item(title = app['trackName'],
