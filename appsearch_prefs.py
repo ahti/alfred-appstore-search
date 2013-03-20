@@ -9,18 +9,6 @@ def keys():
             'lang': {
                 'desc': 'The Store which the workflow should search (en, de, uk, ...)',
                 'default' : 'en'
-            },
-            'luns': {
-                'desc': 'The Store which the workflow should search (en, de, uk, ...)',
-                'default' : 'en'
-            },
-            'foobar': {
-                'desc': 'The Store which the workflow should search (en, de, uk, ...)',
-                'default' : 'en'
-            },
-            'lan': {
-                'desc': 'The Store which the workflow should search (en, de, uk, ...)',
-                'default' : 'en'
             }
     }
     

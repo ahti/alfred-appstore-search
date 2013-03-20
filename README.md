@@ -17,4 +17,4 @@ If you want to have the files in a location that is easier to access, you can al
 
 ## Setup
 
-By default, this Workflow searches the US App Store. If you want to change this, open the Workflow in Alfreds preferences, double-click the Script Filter object and change `set_lang('en')` to something else, for example `set_lang('de')`. 
+By default, this Workflow searches the US App Store. If you want to change this, use the interactive preferences by entering `apps-pref lang <new language>` into Alfred.
