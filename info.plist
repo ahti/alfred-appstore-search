@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>de.lukass.appstore_search</string>
+	<key>connections</key>
+	<dict>
+		<key>06EE5EC3-C1D5-4512-B1CA-798AACA77771</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>ACB2B286-F6AF-4B84-9592-D602A5B79993</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>Lukas Stabe</string>
+	<key>description</key>
+	<string>Opens the Mac App Store and searches for the query</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>App Store Search</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>apps</string>
+				<key>runningsubtext</key>
+				<string>Searching ...</string>
+				<key>script</key>
+				<string>from appsearch import search_apps, set_lang
+
+set_lang('de')
+search_apps('{query}')</string>
+				<key>subtext</key>
+				<string>Search for Apps in the Mac App Store</string>
+				<key>title</key>
+				<string>Search In App Store</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>06EE5EC3-C1D5-4512-B1CA-798AACA77771</string>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>script</key>
+				<string>open '{query}'</string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>ACB2B286-F6AF-4B84-9592-D602A5B79993</string>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>By default, this workflow searches the US store and displays US prices. To change this, open the Script Filter, and change "set_lang('en')" in the source code to something else, for example "set_lang('de')" for the German store.</string>
+	<key>uidata</key>
+	<dict>
+		<key>06EE5EC3-C1D5-4512-B1CA-798AACA77771</key>
+		<dict>
+			<key>ypos</key>
+			<real>40</real>
+		</dict>
+		<key>ACB2B286-F6AF-4B84-9592-D602A5B79993</key>
+		<dict>
+			<key>ypos</key>
+			<real>40</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>https://twitter.com/Ahti333</string>
+</dict>
+</plist>
