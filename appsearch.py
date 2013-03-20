@@ -25,39 +25,49 @@ def search_apps(search_string):
         alp.feedback([item])
         return
     
-    #print(r.text)
-    
-    jsonarr = r.json()
-    
     items = []
     
-    for app in jsonarr['results']:
+    try:
+        jsonarr = r.json()
+        for app in jsonarr['results']:
+            currentKey = 'averageUserRatingForCurrentVersion'
+            allKey = 'averageUserRating'
+            if currentKey in app:
+                raiting = raiting_curr(app[currentKey])
+            elif allKey in app:
+                raiting = raiting_all(app[allKey])
+            else:
+                raiting = raiting_none()
+            
+            sub = u"{} · Version {} · by {} · {}".format(app['formattedPrice'],
+                                                         app['version'],
+                                                         app['sellerName'],
+                                                         raiting)
+            
+            openUrl = app['trackViewUrl'].replace('https', 'macappstores', 1)
+            item = alp.Item(title = app['trackName'],
+                            subtitle = sub,
+                            uid = app['bundleId'],
+                            valid = True,
+                            autocomplete = app['trackName'],
+                            #icon = app['artworkUrl60'],
+                            arg = openUrl)
+            items.append(item)
+    except (ValueError, KeyError):
+        # either the response wasn't json, or some keys we rely on
+        # were missing. Either way, feedback an error message.
+        items = []
         
-        currentKey = 'averageUserRatingForCurrentVersion'
-        allKey = 'averageUserRating'
-        if currentKey in app:
-            raiting = raiting_curr(app[currentKey])
-        elif allKey in app:
-            raiting = raiting_all(app[allKey])
-        else:
-            raiting = raiting_none()
-        
-        sub = u"{} · Version {} · by {} · {}".format(app['formattedPrice'],
-                                                     app['version'],
-                                                     app['sellerName'],
-                                                     raiting)
-        
-        openUrl = app['trackViewUrl'].replace('https', 'macappstores', 1)
-        item = alp.Item(title = app['trackName'],
-                        subtitle = sub,
-                        uid = app['bundleId'],
-                        valid = True,
-                        autocomplete = app['trackName'],
+        subtitle = 'The API returned something unexpected. Maybe your lang setting ({}) isn\'t right?'.format(search_lang)
+        item = alp.Item(title = 'Error: Unexpected response',
+                        subtitle = subtitle,
+                        uid = '',
+                        valid = False,
+                        autocomplete = search_string,
                         #icon = app['artworkUrl60'],
-                        arg = openUrl)
+                        arg = '')
         items.append(item)
     
-        
     alp.feedback(items)
 
 def star_string(raiting):
