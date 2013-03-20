@@ -42,7 +42,7 @@
 				<key>script</key>
 				<string>from appsearch import search_apps, set_lang
 
-set_lang('de')
+set_lang('en')
 search_apps('{query}')</string>
 				<key>subtext</key>
 				<string>Search for Apps in the Mac App Store</string>
