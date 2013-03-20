@@ -32,7 +32,7 @@
 	<key>createdby</key>
 	<string>Lukas Stabe</string>
 	<key>description</key>
-	<string>Opens the Mac App Store and searches for the query</string>
+	<string>Search the Mac App Store and view results in Alfred</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -131,7 +131,9 @@ AppsearchPrefs().execute('{query}')</string>
 		</dict>
 	</array>
 	<key>readme</key>
-	<string>By default, this workflow searches the US store and displays US prices. To change this, open the Script Filter, and change "set_lang('en')" in the source code to something else, for example "set_lang('de')" for the German store.</string>
+	<string>By default, this Workflow searches the US App Store. If you want to change this, use the interactive preferences by entering 'apps-pref lang &lt;new language&gt;' into Alfred.
+
+For more see https://github.com/Ahti/alfred-appstore-search</string>
 	<key>uidata</key>
 	<dict>
 		<key>041312B2-DEDD-4827-B6BA-603DD0E9B650</key>
